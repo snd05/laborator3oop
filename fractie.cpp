@@ -3,15 +3,19 @@
 
 using namespace std;
 
-fractie::fractie(int, int) {
-    this->a = 0;
-    this->b = 0;
+fractie::fractie(int a, int b) {
+    this->a = a;
+    this->b = b;
 }
 
 fractie::fractie(const fractie &c) {
     this->a = c.a;
     this->b = c.b;
 }
+
+fractie::~fractie() {
+
+};
 
 fractie &fractie::operator=(const fractie &c) {
     a = c.a;
@@ -43,17 +47,17 @@ void fractie::afisare() const {
 }
 
 const fractie operator+(const fractie &c, const fractie &d) {
-    return fractie(c + d);
+    return fractie(c.a + d.a, c.b + d.b);
 }
 
 const fractie operator-(const fractie &c, const fractie &d) {
-    return fractie(c - d);
+    return fractie(c.a - d.a, c.b - d.b);
 }
 
 const fractie operator-(const fractie &c) {
-    int num = -c.a;
-    int den = c.b;
-    return fractie(c.a, c.b);
+    double num = -1 * c.a;
+    double den = c.b;
+    return fractie(num, den);
 }
 
 const fractie operator*(const fractie &c, const fractie &d) {
@@ -101,30 +105,30 @@ bool operator==(const fractie &c, const fractie &d) {
     return ((c.a == d.a) && (c.b == d.b));
 }
 
-bool operator!=(const fractie &c, const fractie &d){
-    return (!(c==d));
+bool operator!=(const fractie &c, const fractie &d) {
+    return (!(c == d));
 }
 
-bool operator>(const fractie& x, const fractie& y){
-    double val_x=x.a/x.b;
-    double val_y=y.a/y.b;
-    return (val_x>val_y);
+bool operator>(const fractie &x, const fractie &y) {
+    double val_x = x.a / x.b;
+    double val_y = y.a / y.b;
+    return (val_x > val_y);
 }
 
-bool operator<(const fractie& x, const fractie& y){
-    double val_x=x.a/x.b;
-    double val_y=y.a/y.b;
-    return (val_x<val_y);
+bool operator<(const fractie &x, const fractie &y) {
+    double val_x = x.a / x.b;
+    double val_y = y.a / y.b;
+    return (val_x < val_y);
 }
 
-bool operator>=(const fractie& x, const fractie& y){
-    double val_x=x.a/x.b;
-    double val_y=y.a/y.b;
-    return (val_x>=val_y);
+bool operator>=(const fractie &x, const fractie &y) {
+    double val_x = x.a / x.b;
+    double val_y = y.a / y.b;
+    return (val_x >= val_y);
 }
 
-bool operator<=(const fractie& x, const fractie& y){
-    double val_x=x.a/x.b;
-    double val_y=y.a/y.b;
-    return (val_x<=val_y);
+bool operator<=(const fractie &x, const fractie &y) {
+    double val_x = x.a / x.b;
+    double val_y = y.a / y.b;
+    return (val_x <= val_y);
 }
