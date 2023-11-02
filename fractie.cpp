@@ -67,3 +67,33 @@ const fractie operator/(const fractie &c, const fractie &d){
     int den=c.b/d.b;
     return fractie(num, den);
 }
+
+void fractie::setData(int c, int d) {
+    this->a=c;
+    this->b=d;
+}
+
+fractie& fractie::operator+=(const fractie &c) {
+    a=a+c.a;
+    b=b+c.b;
+    return *this;
+}
+
+fractie& fractie::operator-=(const fractie &c) {
+    a=a-c.a;
+    b=b-c.b;
+    return *this;
+}
+
+fractie& fractie::operator*=(const fractie &c) {
+    a=a*c.a;
+    b=b*c.b;
+    return *this;
+}
+
+fractie& fractie::operator/=(const fractie &c) {
+    a=a/c.a;
+    b=b/c.b;
+    return *this;
+}
+
